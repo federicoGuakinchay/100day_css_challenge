@@ -36,6 +36,7 @@ menu[0].addEventListener('click',()=>{
     }
 })
 /* -- day 6 -- */
+// it give to the  button of follow interactivity
 let followers = document.querySelector('#followers')
 let fw= 144
 followers.textContent=fw;
@@ -48,6 +49,7 @@ follow.addEventListener('click',()=>{
     }else{followers.textContent=fw}
 })
 /* -- day 7 -- */
+//it give to the panel interactivity
 const $ = ((class1) => {
     let element = class1
     element = document.querySelector(class1)
@@ -143,24 +145,26 @@ fetch(`https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${l
 })
 .catch(error => console.error('Error fetching weather data:', error));
 
-let now = new Date();
+let now = new Date();  // current date
+
 let listdays= ['Sun', 'Mon' , 'Tue', 'Wed', 'Thur','Fri','Sat'];
+let listmounth = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec']
+
 let day = now.getDay();// Get current day
 document.getElementById('today').textContent = ` ${listdays[day]} ` ;
 document.getElementById('tomorrow').textContent = ` ${listdays[day+1]} ` ;
 
 /*  -- day 10 --  */
 
-let mounth = now.getMonth();
-let listmounth = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','SepOct','Nov','Dec']
-console.log(listmounth[mounth])
+let mounth = now.getMonth(); //Get current Month(0,11)
 let hours = now.getHours(); // Get current hours (0-23)
 let minutes = now.getMinutes(); // Get current minutes (0-59)
 let seconds = now.getSeconds(); // Get current seconds (0-59)
-let todaydate = now.getDate() ;
-let y1 = now.getFullYear();
+let todaydate = now.getDate() ; // Get current day (0-31)
+let y1 = now.getFullYear(); // get current year 2024
 
-//Mon 15 Jan 2015
+
+
 let date = `${listdays[day]} ${todaydate} ${listmounth[mounth]} ${y1} `
 document.querySelector('.date-watch').textContent = date
 document.documentElement.style.setProperty(`--today$`, `${listdays[day]}`);
